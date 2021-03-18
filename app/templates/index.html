@@ -1,9 +1,12 @@
-<!--  Comentario   -->
-<html>
-    <head>
-        <title>{{ title }} - Microblog</title>
-    </head>
-    <body>
-        <h1>Hello, {{ user.username }}!</h1>
-    </body>
-</html>
+{% extends "base.html" %}
+
+{% block content %}
+<h1>Hello, {{ user.username }}!</h1>
+<div>
+    {% for post in posts %}
+        <p>{{ post.author.username }} says: <b>{{ post.body }}</b></p>
+    {% else %}
+        <p>Sorry, there are no posts available!</p>
+    {% endfor %}
+</div>
+{% endblock %}
