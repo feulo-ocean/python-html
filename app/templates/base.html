@@ -9,7 +9,11 @@
     <body>
         <div>Microblog: 
             <a href="/index">Home</a>
+            {% if current_user.is_anonymous %}
             <a href="/login">Sign In</a>
+            {% else %}
+            <a href="/logout">LogOut</a>
+            {% endif %}
         </div>
         <hr>
         {% block content %}{% endblock %}
